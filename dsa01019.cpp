@@ -22,14 +22,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int gNumberElements;
-int gArr[20];
+int N;
+int gArray[20];
 
 void printOut()
 {
-    for (int index = 1; index <= gNumberElements; index++)
+    for (int index = 1; index <= N; index++)
     {
-        if (gArr[index] == 1)
+        if (gArray[index] == 1)
         {
             cout << "H";
         }
@@ -43,17 +43,17 @@ void printOut()
 
 void checkCase()
 {
-    if (gArr[1] != 1)
+    if (gArray[1] != 1)
     {
         return;
     }
-    if (gArr[gNumberElements] != 0)
+    if (gArray[N] != 0)
     {
         return;
     }
-    for (int index = 1; index < gNumberElements; index++)
+    for (int index = 1; index < N; index++)
     {
-        if ((gArr[index] == 1) && (gArr[index + 1] == 1))
+        if ((gArray[index] == 1) && (gArray[index + 1] == 1))
         {
             return;
         }
@@ -65,8 +65,8 @@ void tryCase(int index)
 {
     for (int j = 0; j <= 1; j++)
     {
-        gArr[index] = j;
-        if (index == gNumberElements)
+        gArray[index] = j;
+        if (index == N)
         {
             checkCase();
         }
@@ -83,7 +83,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        cin >> gNumberElements;
+        cin >> N;
         tryCase(1);
     }
 }
