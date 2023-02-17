@@ -24,11 +24,9 @@
 using namespace std;
 
 int n, k;
-int combinationArray[20] = {};
-
-int compare(int firstCombination[], int seccondCombination[]);
-int detectCombination();
-void generation(int combination[]);
+bool compare(int firstCombination[], int seccondCombination[]);
+int ordinal_Num_Of(int combination[]);
+void generation(int nextCombination[]);
 
 int main()
 {
@@ -37,19 +35,20 @@ int main()
     while (t--)
     {
         cin >> n >> k;
+        int combination[k + 1];
         for (int i = 1; i <= k; i++)
         {
-            cin >> combinationArray[i];
+            cin >> combination[i];
         }
-        cout << detectCombination() << endl;
+        cout << ordinal_Num_Of(combination) << endl;
     }
 }
 
-int detectCombination()
+int ordinal_Num_Of(int combination[])
 {
-    int ordinalNumber = 0;
     bool combinationDetected = false;
     int newCombination[k + 1];
+    int ordinalNumber = 1;
     for (int i = 1; i <= k; i++)
     {
         newCombination[i] = i;
@@ -57,41 +56,41 @@ int detectCombination()
 
     while (not combinationDetected)
     {
-        ordinalNumber++;
-        if (compare(combinationArray, newCombination) == true)
+        if (compare(combination, newCombination) == true)
         {
             combinationDetected = true;
         }
         else
         {
             generation(newCombination);
+            ordinalNumber++;
         }
     }
     return ordinalNumber;
 }
 
-int compare(int firstCombination[], int seccondCombination[])
+bool compare(int firstCombination[], int seccondCombination[])
 {
     for (int i = 1; i <= k; i++)
     {
         if (firstCombination[i] != seccondCombination[i])
         {
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
-void generation(int combination[])
+void generation(int nextCombination[])
 {
     int i = k;
-    while (combination[i] == n - k + i)
+    while (nextCombination[i] == n - k + i)
     {
         i--;
     }
-    combination[i]++;
+    nextCombination[i]++;
     for (int j = i + 1; j <= k; j++)
     {
-        combination[j] = combination[j - 1] + 1;
+        nextCombination[j] = nextCombination[j - 1] + 1;
     }
 }
