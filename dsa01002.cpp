@@ -55,8 +55,8 @@ int main()
     cin >> t;
     while (t--)
     {
-        int a[1000] = {};
         cin >> n >> k;
+        int a[k + 1] = {};
         for (int i = 1; i <= k; i++)
         {
             cin >> a[i];

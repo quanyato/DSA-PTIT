@@ -20,6 +20,15 @@ void insertSort(int a[], int l, int r)
 }
 
 // Quick sort algorithm
+void quickSort(int a[], int l, int r)
+{
+    if (l < r)
+    {
+        int p = partition(a, l, r);
+        quickSort(a, l, p - 1);
+        quickSort(a, p + 1, r);
+    }
+}
 int partition(int a[], int l, int r)
 {
     int x = a[r], i = l - 1;
@@ -34,17 +43,18 @@ int partition(int a[], int l, int r)
     swap(a[r], a[i + 1]);
     return i + 1;
 }
-void quickSort(int a[], int l, int r)
+
+// merge sort algorithm
+void mergeSort(int a[], int l, int r)
 {
     if (l < r)
     {
-        int p = partition(a, l, r);
-        quickSort(a, l, p - 1);
-        quickSort(a, p + 1, r);
+        int m = l + (r - l) / 2;
+        mergeSort(a, l, m);
+        mergeSort(a, m + 1, r);
+        merge(a, l, m, r);
     }
 }
-
-// merge sort algorithm
 void merge(int arr[], int l, int m, int r)
 {
     int i, j, k;
@@ -82,23 +92,13 @@ void merge(int arr[], int l, int m, int r)
         arr[k++] = R[j++];
     }
 }
-void mergeSort(int a[], int l, int r)
-{
-    if (l < r)
-    {
-        int m = l + (r - l) / 2;
-        mergeSort(a, l, m);
-        mergeSort(a, m + 1, r);
-        merge(a, l, m, r);
-    }
-}
 
 int main()
 {
     int n = 9, a[10] = {20, 2, 9, 7, 12, 15, 1, 6, 8};
 
     // insertSort(a, 0, n - 1);
-    // quickSort(a, 0, n - 1);
+    quickSort(a, 0, n - 1);
     // mergeSort(a, 0, n - 1);
 
     cout << "Mang da sap xep:" << endl;
