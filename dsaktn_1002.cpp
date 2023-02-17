@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 void xuly()
 {
 	int n, k;
@@ -10,12 +10,13 @@ void xuly()
 		cin >> a[i];
 	int i = k;
 	//	while(i>0 && a[i] == n-k+1) i--;
-	while (a[i] == n - k + i)
+	while (a[i] == n - k + 1)
 		i--;
 	if (i <= 0)
 	{
-		for (int j = 1; j <= k; ++j)
-			a[j] = j;
+		for (int i = 1; i <= k; ++i)
+			cout << i << ' ';
+		cout << endl;
 	}
 	else
 	{
