@@ -47,8 +47,8 @@ int main()
 
 int detectCombination()
 {
-    int count = 0;
-    int combinationDetected = 0;
+    int ordinalNumber = 0;
+    bool combinationDetected = false;
     int newCombination[k + 1];
     for (int i = 1; i <= k; i++)
     {
@@ -57,17 +57,17 @@ int detectCombination()
 
     while (!combinationDetected)
     {
-        count++;
+        ordinalNumber++;
         if (compare(combinationArray, newCombination) == true)
         {
-            break;
+            combinationDetected = true;
         }
         else
         {
             generation(newCombination);
         }
     }
-    return count;
+    return ordinalNumber;
 }
 
 int compare(int firstCombination[], int seccondCombination[])
