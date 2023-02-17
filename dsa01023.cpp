@@ -26,8 +26,9 @@ using namespace std;
 int n, k;
 int combinationArray[20] = {};
 
-int compareCombination(int firstCombination[], int seccondCombination[]);
+int compare(int firstCombination[], int seccondCombination[]);
 int detectCombination();
+void generation(int combination[]);
 
 int main()
 {
@@ -57,29 +58,19 @@ int detectCombination()
     while (!combinationDetected)
     {
         count++;
-        int i = k;
-        while (newCombination[i] == n - k + i)
-        {
-            i--;
-        }
-        if (compareCombination(combinationArray, newCombination))
+        if (compare(combinationArray, newCombination) == true)
         {
             break;
         }
         else
         {
-            newCombination[i]++;
-            for (int j = i + 1; j <= k; j++)
-            {
-                newCombination[j] = newCombination[j - 1] + 1;
-            }
+            generation(newCombination);
         }
     }
-
     return count;
 }
 
-int compareCombination(int firstCombination[], int seccondCombination[])
+int compare(int firstCombination[], int seccondCombination[])
 {
     for (int i = 1; i <= k; i++)
     {
@@ -89,4 +80,18 @@ int compareCombination(int firstCombination[], int seccondCombination[])
         }
     }
     return 1;
+}
+
+void generation(int combination[])
+{
+    int i = k;
+    while (combination[i] == n - k + i)
+    {
+        i--;
+    }
+    combination[i]++;
+    for (int j = i + 1; j <= k; j++)
+    {
+        combination[j] = combination[j - 1] + 1;
+    }
 }
