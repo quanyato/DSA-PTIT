@@ -55,7 +55,7 @@ int detectCombination()
         newCombination[i] = i;
     }
 
-    while (!combinationDetected)
+    while (not combinationDetected)
     {
         ordinalNumber++;
         if (compare(combinationArray, newCombination) == true)
