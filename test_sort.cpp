@@ -10,7 +10,7 @@ void insertSort(int a[], int l, int r)
     {
         int tmp = a[i];
         int j = i - 1;
-        while (j >= 0 && a[j] > tmp)
+        while (j >= l && a[j] > tmp)
         {
             a[j + 1] = a[j];
             j--;
@@ -98,7 +98,7 @@ int main()
     int n = 9, a[10] = {20, 2, 9, 7, 12, 15, 1, 6, 8};
 
     // insertSort(a, 0, n - 1);
-    quickSort(a, 0, n - 1);
+    // quickSort(a, 0, n - 1);
     // mergeSort(a, 0, n - 1);
 
     cout << "Mang da sap xep:" << endl;
