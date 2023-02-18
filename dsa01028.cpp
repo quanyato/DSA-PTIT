@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int n, k;
+
 void insertSort(int a[], int l, int r)
 {
     for (int i = l; i <= r; i++)
@@ -15,7 +17,7 @@ void insertSort(int a[], int l, int r)
         a[j + 1] = tmp;
     }
 }
-void formatSrcArray(int &n, int a[])
+void formatSrcArray(int a[])
 {
     insertSort(a, 0, n - 1);
     int i = 0;
@@ -36,12 +38,11 @@ void formatSrcArray(int &n, int a[])
 
 int main()
 {
-    int n, k;
     cin >> n >> k;
     int a[n];
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
-    formatSrcArray(n, a);
+    formatSrcArray(a);
 }
