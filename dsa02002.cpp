@@ -8,10 +8,13 @@
 
 // Input:
 // Dòng đầu tiên đưa vào số lượng bộ test T.
-// Những dòng tiếp theo đưa vào các bộ test. Mỗi bộ test gồm hai dòng: dòng thứ nhất đưa vào N là số lượng phần tử của dãy số A[]; dòng tiếp theo đưa vào N số của mảng A[].
+// Những dòng tiếp theo đưa vào các bộ test. Mỗi bộ test gồm hai dòng: dòng
+// thứ nhất đưa vào N là số lượng phần tử của dãy số A[]; dòng tiếp theo đưa
+// vào N số của mảng A[].
 // T, N, A[i] thỏa mãn ràng buộc: 1≤T≤100; 1≤N, A[i] ≤10;
 // Output:
-// Đưa ra kết quả mỗi test theo từng dòng. Mỗi dòng của tam giác tổng được bao bởi ký tự [, ].
+// Đưa ra kết quả mỗi test theo từng dòng. Mỗi dòng của tam giác tổng được
+// bao bởi ký tự [, ].
 
 // Input           Output
 // 1
