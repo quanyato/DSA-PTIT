@@ -26,9 +26,13 @@ using namespace std;
 
 int n, m;
 int a[100000], b[100000];
+vector<int> unionArray;
+vector<int> intersection;
 
 void init()
 {
+	unionArray.clear();
+	intersection.clear();
 	cin >> n >> m;
 	for (int i = 0; i < n; ++i)
 	{
@@ -40,60 +44,57 @@ void init()
 	}
 }
 
-void print_union()
+void print_Union()
+{
+	int numOfUnion = unionArray.size();
+	for (int i = 0; i < numOfUnion; ++i)
+	{
+		cout << unionArray[i] << " ";
+	}
+	cout << endl;
+}
+void print_intersection()
+{
+	int numOfIntersection = intersection.size();
+	for (int i = 0; i < numOfIntersection; ++i)
+	{
+		cout << intersection[i] << " ";
+	}
+	cout << endl;
+}
+
+void merge_n_push()
 {
 	int i = 0, j = 0;
 	while (i < n && j < m)
 	{
 		if (a[i] < b[j])
 		{
-			cout << a[i] << " ";
+			unionArray.push_back(a[i]);
 			++i;
 		}
 		else if (b[j] < a[i])
 		{
-			cout << b[j] << " ";
+			unionArray.push_back(b[j]);
 			++j;
 		}
 		else
 		{
-			cout << a[i] << " ";
+			unionArray.push_back(a[i]);
+			intersection.push_back(a[i]);
 			++i;
 			++j;
 		}
 	}
 	while (i < n)
 	{
-		cout << a[i] << " ";
+		unionArray.push_back(a[i]);
 		++i;
 	}
 	while (j < m)
 	{
-		cout << b[j] << " ";
+		unionArray.push_back(b[j]);
 		++j;
-	}
-	cout << endl;
-}
-
-void print_intersection()
-{
-	int i = 0, j = 0;
-	while (i < n && j < m)
-	{
-		if (a[i] == b[j])
-		{
-			cout << a[i] << " ";
-			++i;
-			++j;
-		}
-		else if (a[i] > b[j])
-		{
-			++j;
-		}
-		else
-		{
-			++i;
-		}
 	}
 	cout << endl;
 }
@@ -105,7 +106,8 @@ int main()
 	while (t--)
 	{
 		init();
-		print_union();
+		merge_n_push();
+		print_Union();
 		print_intersection();
 	}
 }
