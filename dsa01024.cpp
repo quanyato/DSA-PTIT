@@ -1,4 +1,4 @@
-// ĐẶT TÊN 1
+// ĐẶT TÊN 1 - DSA01024 - DSA02023
 // Kỳ thi ICPC có K đội của PTIT tham gia và đội tuyển đang rất đau đầu không
 // biết chọn các cái tên như thế nào cho các đội. Yêu cầu phải đảm bảo tên
 // không có khoảng trống và không được trùng nhau. Sau khi thảo luận, có N
